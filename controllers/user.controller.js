@@ -4,7 +4,7 @@ const User = require("../models/user");
 exports.add = async (req, res) => {
     let { lastName, firstName, dateOfBirth, address1, address2, city, postalCode, country, phoneNumber, email, userNotes } = req.body;
 
-    if (!lastName || !firstName || !dateOfBirth || !address1 || !address2 || !city || !postalCode || !country || !phoneNumber || !email || !userNotes) {
+    if (!lastName || !firstName || !dateOfBirth || !address1 || !city || !postalCode || !country || !phoneNumber || !email || !userNotes) {
         return res.status(400).json({ error: 'Missing required fields' });
     }
     const newUserData = new User({
