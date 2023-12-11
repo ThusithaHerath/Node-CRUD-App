@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const dotenv = require('dotenv')
-const AuthRouter = require("./routes/user.routes");
+const UserRouter = require("./routes/user.routes");
 dotenv.config()
 
 app.use(express.urlencoded({extended: true}));
@@ -21,6 +21,6 @@ app.use((req, res, next) => {
     }
 });
 
-AuthRouter.routesConfig(app);
+UserRouter.routesConfig(app);
 
 app.listen(process.env.PORT, () => console.log(`App is listening port ${process.env.PORT}`))
