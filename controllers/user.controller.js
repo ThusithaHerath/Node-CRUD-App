@@ -100,3 +100,18 @@ exports.update = async (req, res) => {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+exports.getAllData = async (req, res) => {
+    try {
+        const users = await User.find();
+
+        if (!users || users.length === 0) {
+            return res.status(404).json({ error: 'Data not found' });
+        }
+
+        return res.status(200).json(users);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};

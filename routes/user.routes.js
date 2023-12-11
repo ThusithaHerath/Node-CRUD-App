@@ -4,6 +4,9 @@ exports.routesConfig = function (app) {
     app.post('/add', [
         UserController.add
     ]);
+    app.get('/user/data', [
+        UserController.getAllData
+    ]);
     app.get('/user/data/:id', [
         UserController.getData
     ]);
